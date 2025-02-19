@@ -1,6 +1,6 @@
 package com.example.portfolio.entity;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,27 +11,25 @@ import jakarta.persistence.Table;
 
 import lombok.Data;
 
-@Data
 @Entity
-@Table(name = "portfolio")
+@Table(name = "procedures")
+@Data
 public class PortfolioEntity {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-@Column(name = "id")
-private Long id;
 
-@Column(name = "name")
-private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-@Column(name ="title")
-private String title;
+    @Column(nullable = false, length = 255)
+    private String title;
 
-@Column(name = "content")
-private String content;
+    @Column(columnDefinition = "TEXT")
+    private String content;
 
-@Column(name = "created_at")
-private Timestamp createdAt;
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
 
-@Column(name = "updated_at")
-private Timestamp updatedAt;
+    @Column(nullable = false)
+    private LocalDateTime updatedAt;
+
 }
