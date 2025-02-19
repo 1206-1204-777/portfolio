@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>手順一覧</title>
+</head>
+<body>
+    <div th:fragment="content">
+		<h2>手順一覧</h2>
+		<ul>
+		    <li th:each="procedure : ${procedures}">
+		        <a th:href="@{/procedures/{id}(id=${procedure.id})}" th:text="${procedure.title}"></a>
+		    </li>
+		</ul>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">ポートフォリオ</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <header>
+        <h1>ポートフォリオ</h1>
+        <nav>
+            <a th:href="@{/}">ホーム</a>
+            <a th:href="@{/procedures}">手順一覧</a>
+        </nav>
+    </header>
+
+    <main>
+        <div th:replace="~{::content}"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ポートフォリオ</p>
+    </footer>
+</body>
+</html>

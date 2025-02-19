@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>手順編集</title>
+</head>
+<body>
+    <h2 th:text="${procedure.id == null ? '新規追加' : '手順編集'}"></h2>
+    <form th:action="@{/admin/index/save}" method="post" th:object="${procedure}">
+        <input type="hidden" th:field="*{id}">
+        <label>タイトル:</label>
+        <input type="text" th:field="*{title}" required>
+        <br>
+        <label>内容:</label>
+        <textarea th:field="*{content}" required></textarea>
+        <br>
+        <button type="submit">保存</button>
+    </form>
+    <a th:href="@{/admin/procedures}">戻る</a>
+</body>
+</html>
