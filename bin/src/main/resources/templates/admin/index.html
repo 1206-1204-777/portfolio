@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>手順管理</title>
+</head>
+<body>
+    <h2>手順管理</h2>
+    <a th:href="@{/admin/index/new}">新規追加</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>タイトル</th>
+            <th>操作</th>
+        </tr>
+        <tr th:each="procedure : ${procedures}">
+            <td th:text="${procedure.id}"></td>
+            <td th:text="${procedure.title}"></td>
+            <td>
+                <a th:href="@{/admin/index/edit/{id}(id=${procedure.id})}">編集</a> |
+                <a th:href="@{/admin/index/delete/{id}(id=${procedure.id})}" onclick="return confirm('削除しますか？');">削除</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
